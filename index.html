@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Você 🩵</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Top bar com modo escuro e relógio -->
+  <div class="top-bar">
+    <button id="toggleModo" class="modo-btn">🌙</button>
+    <div id="relogio">00:00:00</div>
+  </div>
+
+  <!-- Chuva de corações -->
+  <div id="chuva-coracoes"></div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Para Você, Meu Amor 🩵</h1>
+      <p>Obrigado por existir na minha vida e me amar tanto quanto eu amo você! 🫶🏻</p>
+      <a href="#historia" class="btn">Eu te amo 🩵</a>
+    </div>
+  </header>
+
+  <section id="historia" class="section">
+    <h2>Para você:</h2>
+    <p>
+      Oi, meu amor. Estou fazendo este site como uma forma de demonstrar que mesmo estando atrás de um computador, analisando balanços de rede e mergulhando em códigos, aquilo que prevalece é meu amor por você e a forma como o amor que sinto por você toma conta dos meus pensamentos.
+    </p>
+    <p>
+      Eu te amo 🩵
+    </p>
+    <p>
+      ¡oxıɐq ɐɹd ɐɔǝqɐɔ ǝp ǝ̗ʇ∀
+    </p>
+  </section>
+
+  <section id="frases" class="section alt">
+    <h2>Versículos para você, meu amor 📖</h2>
+    <ul class="frases">
+      <br> 1 Coríntios 13:4-7
+      <li>"O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegra com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta"</li>
+      <br> Cânticos 1:15
+      <li>“Como você é bela, minha querida! Como você é linda! Como os seus olhos brilham de amor!” </li>
+      <br> Provérbios 31:29 
+      <li>“Muitas mulheres são exemplares, mas você a todas supera.”</li>
+      <br> Filipenses 1:3
+      <li>“Agradeço ao meu Deus toda vez que me lembro de você.” </li>
+    </ul>
+  </section>
+
+  <!-- Galeria de Fotos -->
+  <section id="fotos" class="section alt">
+    <h2>Nossos Momentos 📸</h2>
+    <div class="galeria">
+      <img src="assets/foto6.jpeg" alt="Foto 1">
+      <img src="assets/foto5.jpeg" alt="Foto 2">
+      <img src="assets/foto4.jpeg" alt="Foto 3">
+      <img src="assets/foto3.jpeg" alt="Foto 4">
+      <img src="assets/foto2.jpeg" alt="Foto 5">
+      <img src="assets/foto1.jpeg" alt="Foto 6">
+    </div>
+  </section>
+
+  <!-- Músicas do YouTube -->
+  <section id="musicas" class="section">
+    <h2>Nossas músicas 🎶</h2>
+    <div class="videos">
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/ZkbuGPXJOPA" 
+      title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/Mf_wLIQT3jg" 
+      title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="contador" class="section alt">
+    <h2>Nossa Jornada 💞</h2>
+    <div class="contador-box">
+      <h3>Desde a nossa declaração</h3>
+      <p id="tempoDeclaracao">Carregando...</p>
+
+      <h3>Desde o início do nosso namoro</h3>
+      <p id="tempoNamoro">Carregando...</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Um último recadinho...</h2>
+    <p>
+      Eu te amo. Amo o seu jeito, suas palavras, sua presença. Que esse site seja só o começo de tudo que ainda vou fazer pra te ver feliz.
+    </p>
+    <a href="https://wa.me/5592994216291" class="btn" target="_blank">Me chama no WhatsApp gatinha😘</a>
+  </section>
+
+  <footer>
+    <p>Feito com amor pelo seu amor!</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Contadores de tempo
+    function atualizarTempo(id, dataAlvo) {
+      const agora = new Date();
+      const alvo = new Date(dataAlvo);
+      const diff = agora - alvo;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById(id).textContent =
+        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+    }
+
+    setInterval(() => {
+      atualizarTempo("tempoDeclaracao", "2025-02-11T03:30:00");
+      atualizarTempo("tempoNamoro", "2025-05-01T14:30:00");
+    }, 1000);
+
+    // Chuva de corações
+    function criarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.classList.add("coracao");
+      coracao.style.left = Math.random() * window.innerWidth + "px";
+      coracao.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.getElementById("chuva-coracoes").appendChild(coracao);
+      setTimeout(() => coracao.remove(), 6000);
+    }
+    setInterval(criarCoracao, 300);
+
+    // Relógio digital
+    function atualizarRelogio() {
+      const agora = new Date();
+      const horas = String(agora.getHours()).padStart(2, '0');
+      const minutos = String(agora.getMinutes()).padStart(2, '0');
+      const segundos = String(agora.getSeconds()).padStart(2, '0');
+      document.getElementById("relogio").textContent = `${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio();
+
+    // Modo claro/escuro
+    const btnModo = document.getElementById('toggleModo');
+    btnModo.addEventListener('click', () => {
+      document.body.classList.toggle('modo-claro');
+      btnModo.textContent = document.body.classList.contains('modo-claro') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
+
+
